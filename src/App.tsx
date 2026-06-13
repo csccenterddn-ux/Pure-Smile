@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
+import SEO from './components/SEO';
 import Hero from './components/Hero';
 import Services from './components/Services';
 import AboutUs from './components/AboutUs';
@@ -176,6 +177,9 @@ export default function App() {
   return (
     <div className="relative min-h-screen bg-white text-text-dark flex flex-col justify-between overflow-x-hidden">
       
+      {/* Dynamic SEO metadata manager based on state / active services */}
+      <SEO isBookingModalOpen={isBookingModalOpen} />
+
       {/* Sticky Blue-blur top Header */}
       <Header />
 
