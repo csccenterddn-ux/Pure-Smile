@@ -205,7 +205,7 @@ export default function Gallery() {
   const headingText = activeTab === 'before-after' 
     ? 'Smile Transformations' 
     : activeTab === 'all'
-    ? 'Complete Gallery Portfolio'
+    ? 'Smile Transformations'
     : 'Inside Pure Smile Clinic';
 
   const descriptionText = activeTab === 'before-after' 
@@ -220,7 +220,7 @@ export default function Gallery() {
         
         {/* Section Header */}
         <span className="text-xs font-bold tracking-widest text-[#0FB9B1] uppercase bg-[#ECFDF5] border border-[#D1FAE5] px-4 py-1.5 rounded-full inline-block mb-3.5 shadow-sm select-none">
-          CLINIC GALLERY
+          SMILE GALLERY
         </span>
         <h2 className="text-3xl sm:text-4xl font-heading font-extrabold text-[#0A2540] tracking-tight leading-tight mb-4">
           {headingText}
