@@ -163,6 +163,104 @@ const RootCanalIcon = ({ strokeWidth = 1.5, ...props }: React.SVGProps<SVGSVGEle
   </svg>
 );
 
+// Custom healthcare-grade wisdom tooth surgical icon depicting a molar being extracted with surgical lift lines
+const WisdomToothIcon = ({ strokeWidth = 1.5, ...props }: React.SVGProps<SVGSVGElement> & { strokeWidth?: number }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={strokeWidth}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...props}
+  >
+    {/* Gingival/bone level line with socket indentation */}
+    <path d="M3 18C6 18 7 19.5 9 19.5C11 19.5 12 18 15 18H21" opacity="0.5" />
+    
+    {/* Tooth elevated / tilted in process of extraction */}
+    <path d="M8 9.5C8 8.3 8.8 7.5 10.4 7.5C11.6 7.5 12.1 8.3 12.7 8.3C13.3 8.3 13.7 7.5 14.9 7.5C16.5 7.5 17.3 8.3 17.3 9.5C17.3 10.9 16.5 12 15.5 12.6C16.1 13.8 16.5 15.4 16.5 16.6C16.5 18.6 15.3 20.2 14.3 20.2C13.5 20.2 13.2 19 12.8 17.4C12.6 16.6 12.5 15.8 12.6 15.8c.1 0-.1.8-.2 1.6C11.9 19 11.6 20.2 10.8 20.2C9.8 20.2 8.6 18.6 8.6 16.6C8.6 15.4 9 13.8 9.6 12.6C8.6 12 8 10.9 8 9.5Z" />
+    
+    {/* Elevation curved lines indicating lifting and direction of removal */}
+    <path d="M12 4.5V2" />
+    <path d="M9.5 3.5L12 1L14.5 3.5" />
+    
+    {/* Forces and extraction arcs around the tooth */}
+    <path d="M4.5 14C4.5 11 6.5 8.5 9 8" opacity="0.6" strokeDasharray="1.5 2" />
+    <path d="M19.5 14C19.5 11 17.5 8.5 15 8" opacity="0.6" strokeDasharray="1.5 2" />
+  </svg>
+);
+
+// Custom healthcare-grade gum treatment icon displaying a healthy anatomical gum contour snugly wrapping the tooth neck, paired with a precision periodontal/laser healing light
+const GumTreatmentIcon = ({ strokeWidth = 1.5, ...props }: React.SVGProps<SVGSVGElement> & { strokeWidth?: number }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={strokeWidth}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...props}
+  >
+    {/* Anatomical Tooth with visible roots embedded in the gums */}
+    <path d="M8 6C8 4.8 9.0 4 10.6 4C11.8 4 11.9 4.8 12.5 4.8C13.1 4.8 13.2 4 14.4 4C16.0 4 17 4.8 17 6C17 7.5 16.2 8.5 15.2 9.2C15.8 10.3 16.2 11.8 16.2 13C16.2 15 15.0 16.5 14.0 16.5C13.2 16.5 12.9 15.4 12.5 13.8C12.3 13 12.2 12.2 12.3 12.2c.1 0-.1.8-.2 1.6C11.6 15.4 11.3 16.5 10.5 16.5C9.5 16.5 8.3 15 8.3 13C8.3 11.8 8.7 10.3 9.3 9.2C8.3 8.5 8 7.5 8 6Z" opacity="0.45" />
+
+    {/* Beautiful, prominent scalloped healthy Gum Line contour wrapping precisely around the tooth neck */}
+    <path d="M3 13C4.8 11.2 7.2 11 9 12C10.8 13 13.2 13 15 12C16.8 11 19.2 11.2 21 13" strokeWidth={strokeWidth + 0.3} />
+    {/* Parallel support/bone level gum curve below */}
+    <path d="M3 16.5C4.8 14.7 7.2 14.5 9 15.5C10.8 16.5 13.2 16.5 15 15.5C16.8 14.5 19.2 14.7 21 16.5" opacity="0.6" />
+
+    {/* Gentle laser or ultrasonic disinfection scanning beam targeting the sulcus */}
+    <path d="M19 4L13.5 9.5" />
+    <path d="M13.5 9.5L14.5 11" opacity="0.8" />
+    
+    {/* Micro-healing sparkle/plus representing tissue recovery and sterilization */}
+    <path d="M18.5 8.5H21.5" opacity="0.9" />
+    <path d="M20 7V10" opacity="0.9" />
+  </svg>
+);
+
+// Custom healthcare-grade full mouth rehabilitation icon showing a complete, symmetrical, perfectly restored dental arch (full lower/upper teeth arc) under specialized neuromuscular alignment
+const RehabIcon = ({ strokeWidth = 1.5, ...props }: React.SVGProps<SVGSVGElement> & { strokeWidth?: number }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={strokeWidth}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...props}
+  >
+    {/* Comprehensive restored dental arch (multiple perfectly aligned teeth arranged in a beautiful U-shape / arch) */}
+    <path d="M4 16C4 7.5 20 7.5 20 16" strokeWidth={strokeWidth + 0.2} strokeDasharray="1 1.5" opacity="0.4" />
+    
+    {/* individual teeth symmetrically arranged on the arch */}
+    {/* Central incisors */}
+    <path d="M11 7.2C11 5.8 11.5 5 12 5C12.5 5 13 5.8 13 7.2V9H11V7.2Z" />
+    {/* Lateral incisors & Canines */}
+    <path d="M8.5 8C8.5 6.8 9.0 6 9.7 6C10.4 6 10.7 6.8 10.7 8V9.5H8.5V8Z" />
+    <path d="M13.3 8C13.3 6.8 13.6 6 14.3 6C15.0 6 15.5 6.8 15.5 8V9.5H13.3V8Z" />
+    {/* Premolars */}
+    <path d="M6 10C6 9 6.5 8.2 7.2 8.2C7.9 8.2 8.2 9 8.2 10V11H6V10Z" />
+    <path d="M15.8 10C15.8 10.1 16.1 9.3 16.8 9.3C17.5 9.3 18 10 18 11H15.8V10Z" opacity="0.9" />
+    {/* Molars / Implants on the far ends */}
+    <path d="M3.5 13C3.5 12.2 4 11.5 4.8 11.5C5.6 11.5 5.8 12.2 5.8 13V14H3.5V13Z" opacity="0.7" />
+    <path d="M18.2 13C18.2 12.2 18.4 11.5 19.2 11.5C20 11.5 20.5 12.2 20.5 13V14H18.2V13Z" opacity="0.7" />
+
+    {/* Neuromuscular force-balancing circle surrounding the entire arch */}
+    <path d="M4 12C4 17 8 20.5 12 20.5C16 20.5 20 17 20 12" strokeWidth={strokeWidth} opacity="0.85" />
+    
+    {/* Sparkles signifying pristine complete rehabilitation and aesthetic renewal */}
+    <path d="M12 11.5V15.5" opacity="0.9" />
+    <path d="M10 13.5H14" opacity="0.9" />
+    
+    <path d="M2.5 4L2.9 5.1L4 5.5L2.9 5.9L2.5 7L2.1 5.9L1 5.5L2.1 5.1Z" fill="currentColor" stroke="none" />
+    <path d="M21.5 4L21.9 5.1L23 5.5L21.9 5.9L21.5 7L21.1 5.9L20 5.5L21.1 5.1Z" fill="currentColor" stroke="none" />
+  </svg>
+);
+
 const coreServices = [
   {
     id: 'general',
@@ -356,7 +454,7 @@ const coreServices = [
     recovery: '3–5 Days',
     tech: ['Micro-Surgical Extraction', 'Painless Anesthesia Delivery', 'Accelerated Healing Protocol'],
     tags: ['Painless Extraction', 'Impacted Molar', 'Oral Surgery'],
-    icon: Syringe
+    icon: WisdomToothIcon
   },
   {
     id: 'gum',
@@ -375,7 +473,7 @@ const coreServices = [
     recovery: '1–2 Days',
     tech: ['Ultrasonic Deep Subgingival Scalers', 'Laser Pocket Disinfection', 'Gum Conditioning Gels'],
     tags: ['Periodontology', 'Deep Planing', 'Gum Healing'],
-    icon: Shield
+    icon: GumTreatmentIcon
   },
   {
     id: 'rehab',
@@ -394,7 +492,7 @@ const coreServices = [
     recovery: 'Customized / Progressive',
     tech: ['Virtual Neuromuscular Tracking', 'Digital Arch Analysis', 'Fully Customized Prosthetics'],
     tags: ['Bite Reconstruction', 'Total Overhaul', 'Advanced Aesthetic'],
-    icon: Award
+    icon: RehabIcon
   }
 ];
 
