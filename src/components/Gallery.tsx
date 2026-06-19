@@ -178,7 +178,7 @@ const GALLERY_ITEMS: GalleryItem[] = [
 ];
 
 export default function Gallery() {
-  const [activeTab, setActiveTab] = useState('before-after');
+  const [activeTab, setActiveTab] = useState('all');
   const [currentPage, setCurrentPage] = useState(1);
   const [lightboxItem, setLightboxItem] = useState<GalleryItem | null>(null);
 
@@ -190,7 +190,13 @@ export default function Gallery() {
   }, [activeTab]);
 
   const filteredItems = activeTab === 'all' 
-    ? GALLERY_ITEMS 
+    ? (() => {
+        const beforeAfterItems = GALLERY_ITEMS.filter(item => item.tab === 'before-after');
+        const firstSixBeforeAfter = beforeAfterItems.slice(0, 6);
+        const firstSixIds = new Set(firstSixBeforeAfter.map(item => item.id));
+        const remainingItems = GALLERY_ITEMS.filter(item => !firstSixIds.has(item.id));
+        return [...firstSixBeforeAfter, ...remainingItems];
+      })()
     : GALLERY_ITEMS.filter(item => item.tab === activeTab);
 
   const totalPages = Math.ceil(filteredItems.length / itemsPerPage);
