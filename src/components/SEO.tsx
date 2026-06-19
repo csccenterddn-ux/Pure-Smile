@@ -29,19 +29,12 @@ const SEO_CONFIGS: Record<string, MetaConfigs> = {
     ogTitle: 'Schedule Your Premium Dental Slot | PureSmile Dental',
     ogDescription: 'Select your preferred date, time, and treatment to secure a personalized consultation session.'
   },
-  'dental implants': {
-    title: 'State-of-the-Art Dental Implants | PureSmile Dental',
-    description: 'Restore your teeth with lifetime-guaranteed premium dental implants at PureSmile Dental. Microscopic precision, biological compatibility, and painless care by Dr. Amit Sharma.',
-    keywords: 'dental implants, tooth implant cost, dental implant clinic, implant specialist, crown and implants',
-    ogTitle: 'Premium Dental Implants Specialist | PureSmile',
-    ogDescription: 'Secure, permanent, and natural-feeling dental implants using Swiss dental technologies.'
-  },
-  'smile makeover': {
-    title: 'Custom Smile Makeovers & Porcelain Veneers | PureSmile Dental',
-    description: 'Design the smile of your dreams. Our cosmetic dentist specialized smile makeovers customize porcelain veneers and dental laminates for outstanding confidence.',
-    keywords: 'smile makeover, cosmetic dentist, dental veneers, laminates, cosmetic treatment clinics',
-    ogTitle: 'Bespoke Smile Design & Dental Makeovers | PureSmile Dental',
-    ogDescription: 'Achieve a glowing, perfect smile with our advanced cosmetic alignment and customized porcelain solutions.'
+  'general dentistry': {
+    title: 'Advanced General Dentistry & Diagnostics | PureSmile Dental',
+    description: 'Comprehensive oral diagnostics, checkups, digital X-rays, and customized preventative dental care plans to preserve pristine dental health.',
+    keywords: 'general dentistry, dental checkup, dental imaging, preventative dentist, oral health consultation',
+    ogTitle: 'Comprehensive General Dentistry Solutions | PureSmile Dental',
+    ogDescription: 'Keep your teeth perfectly clean, strong, and healthy with advanced routine assessments.'
   },
   'root canal treatment': {
     title: 'Painless Single-Sitting Root Canal (RCT) | PureSmile',
@@ -50,6 +43,13 @@ const SEO_CONFIGS: Record<string, MetaConfigs> = {
     ogTitle: 'Microscopic Painless Root Canal Treatments (RCT) | PureSmile',
     ogDescription: 'Save your natural teeth with comfortable and efficient single-sitting root canal therapy under experts.'
   },
+  'dental implants': {
+    title: 'State-of-the-Art Dental Implants | PureSmile Dental',
+    description: 'Restore your teeth with lifetime-guaranteed premium dental implants at PureSmile Dental. Microscopic precision, biological compatibility, and painless care by Dr. Amit Sharma.',
+    keywords: 'dental implants, tooth implant cost, dental implant clinic, implant specialist, crown and implants',
+    ogTitle: 'Premium Dental Implants Specialist | PureSmile',
+    ogDescription: 'Secure, permanent, and natural-feeling dental implants using Swiss dental technologies.'
+  },
   'teeth whitening': {
     title: 'Brilliant Laser Teeth Whitening | PureSmile Dental',
     description: 'Brighten your smile up to 8 shades in a single sitting with advanced clinical safe laser teeth whitening. Zero post-whitening tooth sensitivity guaranteed.',
@@ -57,12 +57,33 @@ const SEO_CONFIGS: Record<string, MetaConfigs> = {
     ogTitle: 'Professional Laser Teeth Whitening | PureSmile',
     ogDescription: 'Say goodbye to stains and discoloration in just 45 minutes with our gentle, premium bleaching service.'
   },
-  'invisible aligners': {
-    title: 'Premium Invisible Aligners & Invisalign | PureSmile',
+  'smile makeover': {
+    title: 'Custom Smile Makeovers & Porcelain Veneers | PureSmile Dental',
+    description: 'Design the smile of your dreams. Our cosmetic dentist specialized smile makeovers customize porcelain veneers and dental laminates for outstanding confidence.',
+    keywords: 'smile makeover, cosmetic dentist, dental veneers, laminates, cosmetic treatment clinics',
+    ogTitle: 'Bespoke Smile Design & Dental Makeovers | PureSmile Dental',
+    ogDescription: 'Achieve a glowing, perfect smile with our advanced cosmetic alignment and customized porcelain solutions.'
+  },
+  'orthodontics': {
+    title: 'Premium Advanced Orthodontics & Braces | PureSmile Dental',
+    description: 'Correct tooth misalignments and severe bite parameters comfortably using top-grade ceramic and self-ligating metal braces.',
+    keywords: 'orthodontics, traditional braces, ceramic braces, gap adjustment, alignment bite, clear brackets',
+    ogTitle: 'Expert Orthodontics & Balanced Bite Correction | PureSmile Dental',
+    ogDescription: 'Straighten your misalignments smoothly under fully certified senior orthodontists.'
+  },
+  'clear aligners': {
+    title: 'Premium Clear Aligners & Invisalign | PureSmile',
     description: 'Get straight teeth without metal braces. Premium clear orthodontic aligners and certified Invisalign providers at PureSmile Dental.',
     keywords: 'clear aligners, Invisalign cost, invisible braces, orthodontist aligners clinic',
     ogTitle: 'Digital-First Clear Aligners & Invisalign | PureSmile Dental',
     ogDescription: 'Perfect orthodontic alignments using comfortable, virtually invisible removable dental trays.'
+  },
+  'dental crowns & bridges': {
+    title: 'Premium Dental Crowns & Bridges | PureSmile Dental',
+    description: 'Restore structurally damaged or missing teeth seamlessly with metal-free E-Max or high-translucency Zirconia dental caps and support bridges.',
+    keywords: 'dental crowns, dental bridges, porcelain crown, zirconia cover, damaged teeth restore',
+    ogTitle: 'CAD/CAM Dental Crowns & Modular Bridges | PureSmile Dental',
+    ogDescription: 'Re-establish complete chewing stability with durable, beautifully contoured dental prosthetic caps.'
   },
   'pediatric dentistry': {
     title: 'Gentle Pediatric (Kids) Dentistry | PureSmile Dental',
@@ -78,19 +99,19 @@ const SEO_CONFIGS: Record<string, MetaConfigs> = {
     ogTitle: 'Advanced Wisdom Tooth Surgical Removal | PureSmile Dental',
     ogDescription: 'Safe, certified surgical wisdom teeth tooth removals utilizing state-of-the-art suture standards.'
   },
-  'emergency treatment': {
-    title: '24/7 Urgent Emergency Dental Surgery & Care | PureSmile',
-    description: 'An outstanding dental trauma or severe toothache emergency? Get same-day walk-in pain relief at PureSmile\'s top emergency dental hospital.',
-    keywords: 'emergency dentist, 24 hour dental clinic, urgent dental crown repair, tooth fracture, immediate pain relief',
-    ogTitle: 'Same-Day Urgent Emergency Dental Relief | PureSmile Dental',
-    ogDescription: 'Instant emergency assistance, pain therapies, and trauma repairs for severe toothaches.'
+  'gum treatment': {
+    title: 'Specialized Gum Treatment & Periodontics | PureSmile Dental',
+    description: 'Stop bleeding gums, reverse bad breath, and treat gum disease with advanced scaling, root planing, and therapeutic laser sterilizations.',
+    keywords: 'gum treatment, periodontics scaling, root planing, gums bleeding cure, pocket disinfection',
+    ogTitle: 'Clinical Periodontal & Laser Gum Therapy | PureSmile Dental',
+    ogDescription: 'Arrest infection and build strong, healthy support boundaries for your natural teeth teeth.'
   },
-  'general checkup and cleaning': {
-    title: 'Ultrasonic Dental Scaling & Deep Cleanings | PureSmile',
-    description: 'Stop swelling and gum disease with professional scaling, polishing, and comprehensive dental health assessments. Clean and polish under 30 minutes.',
-    keywords: 'teeth cleaning, scaling and polishing, dental hygiene, oral prophylaxis cleanings',
-    ogTitle: 'Professional Ultrasonic Teeth Hygiene Check | PureSmile Dental',
-    ogDescription: 'Experience advanced scaling and comprehensive gum disease prophylactics for clinical oral freshness.'
+  'full mouth rehabilitation': {
+    title: 'Full Mouth Rehabilitation & Bite Reconstruction | PureSmile Dental',
+    description: 'Prisitine combination of advanced implants, dental crowns, smile design, and bite alignment to reverse massive tooth damage and wear.',
+    keywords: 'full mouth rehabilitation, teeth reconstruction, dental rebuild clinic, neuromuscular bite, teeth restore',
+    ogTitle: 'Neuromuscular Full Mouth Reconstruction | PureSmile Dental',
+    ogDescription: 'Restore your natural chewing force, appearance, and dental integrity with a comprehensive rehab plan.'
   }
 };
 
