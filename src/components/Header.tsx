@@ -265,7 +265,7 @@ export default function Header() {
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
-              transition={{ type: 'spring', damping: 28, stiffness: 260 }}
+              transition={{ type: 'tween', ease: 'easeOut', duration: 0.22 }}
               className="fixed top-0 right-0 bottom-0 w-full sm:w-[380px] bg-[#FFFFFF] z-50 shadow-2xl lg:hidden flex flex-col p-6 overflow-y-auto"
             >
               {/* Header section in-drawer */}
@@ -285,7 +285,7 @@ export default function Header() {
                 </div>
                 
                 <motion.button
-                  whileTap={{ scale: 0.92 }}
+                  whileTap={{ scale: 0.95 }}
                   type="button"
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-[#ECFDF5] text-[#0FB9B1] flex items-center justify-center hover:bg-[#D1FAE5] transition-all focus:outline-none cursor-pointer"
@@ -303,10 +303,7 @@ export default function Header() {
                   if (item.label === 'Treatments') {
                     return (
                       <div key={item.id} className="flex flex-col border-b border-slate-100/80">
-                        <motion.button
-                          initial={{ opacity: 0, x: 20 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ delay: idx * 0.05 + 0.1 }}
+                        <button
                           type="button"
                           onClick={() => setIsMobileTreatmentsExpanded(!isMobileTreatmentsExpanded)}
                           className={`flex items-center justify-between py-3.5 px-3 rounded-xl text-[15px] font-semibold tracking-wide transition-all duration-200 text-left cursor-pointer select-none ${
@@ -317,7 +314,7 @@ export default function Header() {
                         >
                           <span>{item.label}</span>
                           <ChevronDown className={`w-4 h-4 transition-transform duration-300 shrink-0 ${isMobileTreatmentsExpanded ? 'rotate-180 text-[#0FB9B1]' : 'text-slate-400'}`} />
-                        </motion.button>
+                        </button>
                         
                         <AnimatePresence initial={false}>
                           {isMobileTreatmentsExpanded && (
@@ -325,7 +322,7 @@ export default function Header() {
                               initial={{ height: 0, opacity: 0 }}
                               animate={{ height: 'auto', opacity: 1 }}
                               exit={{ height: 0, opacity: 0 }}
-                              transition={{ duration: 0.25, ease: 'easeInOut' }}
+                              transition={{ duration: 0.2, ease: 'easeInOut' }}
                               className="overflow-hidden"
                             >
                               <div className="pb-3 flex flex-col text-left pl-6 pr-2 gap-y-1 mt-1">
@@ -351,10 +348,7 @@ export default function Header() {
                   }
 
                   return (
-                    <motion.a
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: idx * 0.05 + 0.1 }}
+                    <a
                       key={item.id}
                       href={item.href}
                       data-nav-link="true"
@@ -367,7 +361,7 @@ export default function Header() {
                     >
                       <span>{item.label}</span>
                       <ChevronRight className={`w-4 h-4 transition-transform duration-200 shrink-0 ${isActive ? 'translate-x-1 text-[#0FB9B1]' : 'text-slate-300'}`} />
-                    </motion.a>
+                    </a>
                   );
                 })}
               </nav>

@@ -90,6 +90,8 @@ export default function BlogSection() {
                     src={article.imageUrl} 
                     alt={article.title} 
                     referrerPolicy="no-referrer"
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover object-center group-hover:scale-102 transition-transform duration-500"
                   />
                   <span className={`absolute top-4 left-4 text-[8px] font-sans font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-2xs ${article.color}`}>

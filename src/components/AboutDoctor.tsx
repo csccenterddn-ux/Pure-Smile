@@ -116,6 +116,8 @@ export default function AboutDoctor() {
               <img 
                 src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
                 alt="Dr. Amit Sharma" 
+                loading="lazy"
+                decoding="async"
                 className="w-full h-[32rem] object-cover object-center"
               />
             </motion.div>

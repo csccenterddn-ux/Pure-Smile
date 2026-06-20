@@ -563,6 +563,16 @@ export default function Services() {
   const [activeService, setActiveService] = useState<typeof coreServices[number] | null>(null);
   const { activeTreatment, setActiveTreatment } = useTreatment();
   const hasManuallyClosed = useRef(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const handleClose = useCallback(() => {
     hasManuallyClosed.current = true;
@@ -645,9 +655,9 @@ export default function Services() {
         <motion.div 
           id="services-grid" 
           variants={gridContainerVariants}
-          initial="hidden"
+          initial={isMobile ? "show" : "hidden"}
           whileInView="show"
-          viewport={{ once: true, amount: 0.15 }}
+          viewport={{ once: true, amount: isMobile ? 0.01 : 0.05 }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           {coreServices.map((service) => {
@@ -656,7 +666,7 @@ export default function Services() {
               <motion.div
                 key={service.id}
                 variants={gridCardVariants}
-                whileHover={{ y: -8 }}
+                whileHover={isMobile ? undefined : { y: -8 }}
                 className="group relative bg-[#FFFFFF] border border-[rgba(15,185,177,0.12)] hover:border-[#0FB9B1] hover:ring-1 hover:ring-[#0FB9B1] rounded-[24px] py-10 px-8 sm:p-8 shadow-[0_20px_40px_rgba(10,37,64,0.08)] hover:shadow-[0_24px_48px_rgba(10,37,64,0.12)] transition-[border-color,box-shadow] duration-300 ease-out select-none flex flex-col items-start text-left shrink-0 cursor-default"
               >
                 {/* Premium elegant badge strictly for flagged treatments */}
@@ -669,7 +679,7 @@ export default function Services() {
                 {/* Consistent outline icon container inside custom high-end private healthcare box with smooth scale-up entry animation and hover responsiveness */}
                 <motion.div 
                   variants={iconVariants}
-                  whileHover={{ 
+                  whileHover={isMobile ? undefined : { 
                     scale: 1.12, 
                     rotate: 3,
                     transition: { type: "spring", stiffness: 400, damping: 10 } 

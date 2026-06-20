@@ -4,8 +4,22 @@ import { motion } from 'motion/react';
 
 export default function Hero() {
   const [particles, setParticles] = useState<Array<{ id: number, left: string, top: string, delay: string, duration: string, size: string, opacity: number, yShift: number }>>([]);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  useEffect(() => {
+    if (isMobile) {
+      setParticles([]);
+      return;
+    }
     // Generate organic ambient particles - refined density for elegant polish
     const generated = Array.from({ length: 8 }).map((_, i) => ({
       id: i,
@@ -18,7 +32,7 @@ export default function Hero() {
       yShift: -(3 + Math.random() * 5), // Translate Y: 3px to 8px
     }));
     setParticles(generated);
-  }, []);
+  }, [isMobile]);
 
   return (
     <section 
@@ -30,20 +44,20 @@ export default function Hero() {
       <div className="absolute inset-0 overflow-hidden pointer-events-none select-none z-0">
         {/* Soft curved organic shape 1 in top-right - Animate Left/Right (10px-20px range, 20-40s duration) */}
         <motion.div 
-          className="absolute -top-[15%] -right-[10%] w-[70vw] h-[70vw] rounded-full bg-[#1e4f8a] opacity-[0.05] filter blur-[120px]" 
-          animate={{ x: [-15, 15, -15] }}
+          className={`absolute -top-[15%] -right-[10%] w-[70vw] h-[70vw] rounded-full bg-[#1e4f8a] opacity-[0.05] filter ${isMobile ? 'blur-[40px]' : 'blur-[120px]'}`} 
+          animate={isMobile ? undefined : { x: [-15, 15, -15] }}
           transition={{ duration: 30, repeat: Infinity, ease: "easeInOut" }}
         />
         {/* Soft organic wave blob in bottom-left - Animate Up/Down (10px-20px range, 20-40s duration) */}
         <motion.div 
-          className="absolute -bottom-[20%] -left-[10%] w-[60vw] h-[60vw] rounded-full bg-[#0FB9B1] opacity-[0.04] filter blur-[140px]" 
-          animate={{ y: [-15, 15, -15] }}
+          className={`absolute -bottom-[20%] -left-[10%] w-[60vw] h-[60vw] rounded-full bg-[#0FB9B1] opacity-[0.04] filter ${isMobile ? 'blur-[40px]' : 'blur-[140px]'}`} 
+          animate={isMobile ? undefined : { y: [-15, 15, -15] }}
           transition={{ duration: 35, repeat: Infinity, ease: "easeInOut" }}
         />
         {/* Gentle deep organic shape in middle-left - Compound smooth movement */}
         <motion.div 
-          className="absolute top-[25%] -left-[20%] w-[50vw] h-[50vw] rounded-[180px_90px_240px_120px] bg-[#1a4b7c] rotate-12 opacity-[0.04] filter blur-[110px]" 
-          animate={{ x: [-10, 10, -10], y: [10, -10, 10] }}
+          className={`absolute top-[25%] -left-[20%] w-[50vw] h-[50vw] rounded-[180px_90px_240px_120px] bg-[#1a4b7c] rotate-12 opacity-[0.04] filter ${isMobile ? 'blur-[45px]' : 'blur-[110px]'}`} 
+          animate={isMobile ? undefined : { x: [-10, 10, -10], y: [10, -10, 10] }}
           transition={{ duration: 40, repeat: Infinity, ease: "easeInOut" }}
         />
       </div>
@@ -55,18 +69,18 @@ export default function Hero() {
       >
         {/* Top Left: Deep Navy Glow */}
         <div 
-          className="absolute top-0 left-0 w-[55vw] h-[55vw] bg-[#0A2540] filter blur-[120px]" 
+          className={`absolute top-0 left-0 w-[55vw] h-[55vw] bg-[#0A2540] filter ${isMobile ? 'blur-[40px]' : 'blur-[120px]'}`} 
         />
         {/* Center: Soft Blue Glow shifting slowly (15-25 seconds) */}
         <motion.div 
-          className="absolute top-[20%] left-[20%] w-[60vw] h-[60vw] rounded-full bg-[#4285F4] filter blur-[150px]" 
-          animate={{ x: [-20, 20, -20], y: [-15, 15, -15] }}
+          className={`absolute top-[20%] left-[20%] w-[60vw] h-[60vw] rounded-full bg-[#4285F4] filter ${isMobile ? 'blur-[50px]' : 'blur-[150px]'}`} 
+          animate={isMobile ? undefined : { x: [-20, 20, -20], y: [-15, 15, -15] }}
           transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
         />
         {/* Bottom Right: Very Subtle Emerald Glow shifting slowly (15-25 seconds) */}
         <motion.div 
-          className="absolute bottom-0 right-0 w-[50vw] h-[50vw] rounded-full bg-[#0FB9B1] filter blur-[130px]" 
-          animate={{ x: [15, -15, 15], y: [15, -15, 15] }}
+          className={`absolute bottom-0 right-0 w-[50vw] h-[50vw] rounded-full bg-[#0FB9B1] filter ${isMobile ? 'blur-[40px]' : 'blur-[130px]'}`} 
+          animate={isMobile ? undefined : { x: [15, -15, 15], y: [15, -15, 15] }}
           transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
         />
       </div>
@@ -292,7 +306,7 @@ export default function Hero() {
             className="absolute -top-6 -left-4 sm:-left-12 z-20"
           >
             <motion.div
-              animate={{ y: [-4, 4, -4] }}
+              animate={isMobile ? undefined : { y: [-4, 4, -4] }}
               transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
               whileHover={{ y: -7 }}
               className="bg-white rounded-[24px] p-4.5 shadow-[0_20px_50px_rgba(10,37,64,0.18)] border border-[#E2E8F0] flex flex-col gap-3 max-w-[245px] text-left select-none transition-shadow duration-300 hover:shadow-[0_25px_55px_rgba(10,37,64,0.25)] cursor-default"
@@ -340,7 +354,7 @@ export default function Hero() {
             className="absolute -bottom-6 -right-2 sm:-right-8 z-20"
           >
             <motion.div
-              animate={{ y: [3, -3, 3] }}
+              animate={isMobile ? undefined : { y: [3, -3, 3] }}
               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
               whileHover={{ y: -3 }}
               className="bg-white rounded-2xl p-4.5 shadow-[0_15px_35px_rgba(10,37,64,0.14)] border border-[#E2E8F0] flex items-center gap-3.5 max-w-[250px] text-left select-none transition-shadow duration-300 hover:shadow-[0_20px_40px_rgba(10,37,64,0.22)] cursor-default"
